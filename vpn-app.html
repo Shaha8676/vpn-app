@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>UzVPN</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -51,7 +52,7 @@
     max-width: 430px; margin: 0 auto;
     min-height: 100vh; display: flex; flex-direction: column;
   }
-
+ 
   /* LANGUAGE SCREEN */
   .lang-screen {
     position: fixed; inset: 0;
@@ -105,7 +106,7 @@
   .lang-btn-text { flex: 1; text-align: left; }
   .lang-btn-name { font-size: 16px; font-weight: 600; }
   .lang-btn-native { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-
+ 
   /* Pages */
   .page { display: none; flex-direction: column; min-height: 100vh; padding-bottom: 90px; }
   .page.active { display: flex; animation: pageIn 0.3s ease; }
@@ -113,7 +114,7 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+ 
   /* Header */
   .header {
     padding: 20px 20px 10px;
@@ -122,7 +123,7 @@
   .header-title { font-size: 17px; font-weight: 600; color: var(--text-primary); letter-spacing: 0.3px; }
   .header-sub { font-size: 11px; color: var(--text-muted); text-align: center; }
   .header-center { text-align: center; flex: 1; }
-
+ 
   /* HOME */
   .shield-area {
     flex: 1; display: flex; align-items: center;
@@ -181,7 +182,7 @@
   }
   .info-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
   .info-value { font-size: 13px; font-weight: 600; color: var(--violet-glow); font-family: 'Space Mono', monospace; }
-
+ 
   /* PLANS */
   .plans-title {
     font-size: 11px; font-weight: 600; color: var(--violet-light);
@@ -220,7 +221,7 @@
     color: var(--success); font-size: 10px; font-weight: 600;
     padding: 2px 8px; border-radius: 8px;
   }
-
+ 
   .btn-primary {
     margin: 0 20px 12px;
     background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
@@ -244,7 +245,7 @@
   .btn-secondary:active { transform: scale(0.98); background: var(--bg-card2); }
   .btn-icon { font-size: 18px; }
   .btn-price { font-size: 13px; opacity: 0.85; }
-
+ 
   /* LIST */
   .page-content { padding: 0 20px; }
   .section-title {
@@ -271,7 +272,7 @@
   .list-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
   .list-sub { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
   .list-arrow { color: var(--text-muted); font-size: 14px; }
-
+ 
   /* PROFILE */
   .profile-card {
     background: linear-gradient(135deg, var(--bg-card), var(--violet-soft));
@@ -305,7 +306,7 @@
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;
   }
   .referral-label { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
-
+ 
   /* SETUP */
   .setup-area {
     width: 100%; display: flex; flex-direction: column;
@@ -417,7 +418,7 @@
     0%, 100% { opacity: 0.5; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.05); }
   }
-
+ 
   /* LANG SWITCHER */
   .lang-switcher {
     display: flex; gap: 8px; margin: 0 20px 16px;
@@ -433,7 +434,7 @@
     border-color: var(--violet-light); color: var(--violet-glow);
     background: rgba(124,58,237,0.15);
   }
-
+ 
   /* BOTTOM NAV */
   .bottom-nav {
     position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
@@ -459,7 +460,7 @@
   }
   .nav-label { font-size: 10px; color: var(--text-muted); font-weight: 500; }
   .nav-item.active .nav-label { color: var(--violet-glow); }
-
+ 
   /* Toast */
   .toast {
     position: fixed; top: 20px; left: 50%;
@@ -475,7 +476,7 @@
 </head>
 <body>
 <div class="app">
-
+ 
   <!-- LANGUAGE SELECTION SCREEN -->
   <div class="lang-screen" id="langScreen">
     <svg class="lang-logo" viewBox="0 0 80 90" fill="none">
@@ -494,7 +495,7 @@
     <div class="lang-title">UzVPN</div>
     <div class="lang-subtitle">Xavfsiz va tez internet<br>Безопасный и быстрый интернет</div>
     <div class="lang-question" id="langQuestion">Tilni tanlang / Выберите язык</div>
-
+ 
     <button class="lang-btn" onclick="setLang('uz')">
       <span class="lang-flag">🇺🇿</span>
       <div class="lang-btn-text">
@@ -512,14 +513,14 @@
       <span>›</span>
     </button>
   </div>
-
+ 
   <!-- HOME PAGE -->
   <div class="page active" id="page-home">
     <div class="lang-switcher">
       <button class="lang-pill active" id="pill-uz" onclick="setLang('uz')">🇺🇿 O'zbek</button>
       <button class="lang-pill" id="pill-ru" onclick="setLang('ru')">🇷🇺 Русский</button>
     </div>
-
+ 
     <div class="shield-area">
       <div class="shield-rings">
         <div class="ring ring-1"></div>
@@ -544,7 +545,7 @@
         <span id="homeStatus">Online · 1.53 TB</span>
       </div>
     </div>
-
+ 
     <div class="info-row">
       <div class="info-item">
         <div class="info-label" data-uz="Muddat" data-ru="Срок">Muddat</div>
@@ -559,7 +560,7 @@
         <div class="info-value">RU-1</div>
       </div>
     </div>
-
+ 
     <!-- PLANS -->
     <div class="plans-title" id="plansTitle">Tarif rejalar</div>
     <div class="plans-grid">
@@ -592,13 +593,13 @@
         <div class="plan-discount">-30%</div>
       </div>
     </div>
-
+ 
     <button class="btn-secondary" onclick="goTo('setup')">
       <span id="btnSetup">🔧 O'rnatish va sozlash</span>
       <span class="btn-icon">›</span>
     </button>
   </div>
-
+ 
   <!-- SETUP PAGE -->
   <div class="page" id="page-setup">
     <div class="header">
@@ -609,7 +610,7 @@
       </div>
       <div style="width:50px"></div>
     </div>
-
+ 
     <!-- STEP 1: OS tanlash -->
     <div id="setupStep1" class="setup-area">
       <div class="setup-icon-area">
@@ -636,7 +637,7 @@
         <span class="os-arrow">›</span>
       </button>
     </div>
-
+ 
     <!-- STEP 2: App yuklab olish -->
     <div id="setupStep2" class="setup-area" style="display:none;">
       <div class="steps-header">
@@ -669,7 +670,7 @@
         <span>›</span>
       </button>
     </div>
-
+ 
     <!-- STEP 3: Ulash -->
     <div id="setupStep3" class="setup-area" style="display:none;">
       <div class="steps-header">
@@ -697,7 +698,7 @@
       </button>
       <div class="setup-sub" id="step3Hint" style="font-size:12px;margin:0;">Tugmani bossangiz WireGuard ilovasi ochiladi</div>
     </div>
-
+ 
     <!-- STEP 4: Tayyor -->
     <div id="setupStep4" class="setup-area" style="display:none;">
       <div class="steps-header">
@@ -718,7 +719,7 @@
       </button>
     </div>
   </div>
-
+ 
   <!-- PROFILE PAGE -->
   <div class="page" id="page-profile">
     <div class="header">
@@ -746,7 +747,7 @@
     <div class="page-content">
       <div class="section-title" id="profileSection1">Profil sozlamalari</div>
       <div class="card-list">
-        <div class="list-item" onclick="showToast(t('paymentMethods'))">
+        <div class="list-item" onclick="sendToBot({action:'my_sub'})">
           <div class="list-icon">💳</div>
           <div class="list-text">
             <div class="list-title" id="pm1">To'lov usullari</div>
@@ -762,7 +763,7 @@
           </div>
           <div class="list-arrow">›</div>
         </div>
-        <div class="list-item" onclick="showToast(t('referral'))">
+        <div class="list-item" onclick="sendToBot({action:'referral'})">
           <div class="list-icon">🎁</div>
           <div class="list-text">
             <div class="list-title" id="pm3">Referal dastur</div>
@@ -789,7 +790,7 @@
           </div>
           <div class="list-arrow">›</div>
         </div>
-        <div class="list-item" onclick="showToast(t('support'))">
+        <div class="list-item" onclick="sendToBot({action:'support'})">
           <div class="list-icon">💬</div>
           <div class="list-text">
             <div class="list-title" id="sp2">Qo'llab-quvvatlash</div>
@@ -808,7 +809,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- SUPPORT PAGE -->
   <div class="page" id="page-support">
     <div class="header">
@@ -826,7 +827,7 @@
       </div>
       <div class="setup-title" id="supportTitle">Yordam markazi</div>
       <div class="setup-sub" id="supportSub">Texnik muammolar va savollar uchun bizning jamoamiz doim tayyor</div>
-      <button class="btn-primary" style="width:100%;justify-content:center;margin:0 0 12px;" id="btnOperator" onclick="showToast(t('connectingOp'))">
+      <button class="btn-primary" style="width:100%;justify-content:center;margin:0 0 12px;" id="btnOperator" onclick="sendToBot({action:'support'})">
         💬 Operatorga yozish
       </button>
       <button class="btn-secondary" style="width:100%;justify-content:center;margin:0;" id="btnFaq" onclick="showToast(t('faq'))">
@@ -834,7 +835,7 @@
       </button>
     </div>
   </div>
-
+ 
   <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
     <button class="nav-item active" id="nav-home" onclick="navigate('home')">
@@ -855,12 +856,23 @@
     </button>
   </nav>
 </div>
-
+ 
 <div class="toast" id="toast"></div>
-
+ 
 <script>
   let lang = 'uz';
-
+ 
+  // Botga signal yuborish (Telegram WebApp API orqali)
+  function sendToBot(data) {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.sendData(JSON.stringify(data));
+    } else {
+      // Test rejimi (Telegram tashqarisida ochilganda)
+      console.log("sendData:", data);
+      showToast("Test: " + JSON.stringify(data));
+    }
+  }
+ 
   const strings = {
     uz: {
       setupStarted: "Sozlash boshlandi!",
@@ -893,12 +905,12 @@
       buyMsg: (m, p) => `${m} мес. - оплата ${p} ₽ обрабатывается...`
     }
   };
-
+ 
   function t(key, ...args) {
     const s = strings[lang][key];
     return typeof s === 'function' ? s(...args) : s;
   }
-
+ 
   const translations = {
     uz: {
       plansTitle: "Tarif rejalar",
@@ -912,7 +924,7 @@
       refLabel: "Sizning taklif havolangiz",
       profileSection1: "Profil sozlamalari",
       profileSection2: "Yordam",
-      pm1: "To'lov usullari", pm1s: "To'lov usullarini sozlash",
+      pm1: "Mening obunam", pm1s: "Obuna holatini ko'rish",
       pm2: "Operatsiyalar tarixi", pm2s: "Tranzaksiyalar ro'yxati",
       pm3: "Referal dastur", pm3s: "Taklif uchun bonus oling",
       pm4: "Kirishni saqlash", pm4s: "Telegram bloklansa ham ishlaydi",
@@ -945,7 +957,7 @@
       refLabel: "Ваша реферальная ссылка",
       profileSection1: "Настройки профиля",
       profileSection2: "Поддержка",
-      pm1: "Способы оплаты", pm1s: "Настройка способов оплаты",
+      pm1: "Моя подписка", pm1s: "Посмотреть статус подписки",
       pm2: "История операций", pm2s: "Список ваших транзакций",
       pm3: "Реферальная программа", pm3s: "Получайте бонусы за приглашения",
       pm4: "Сохранение доступа", pm4s: "На случай блокировки Telegram",
@@ -967,7 +979,7 @@
       btnGoHome: "🏠 На главную", backText: "Назад", configName: "VPN Профиль — UzVPN"
     }
   };
-
+ 
   function setLang(l) {
     lang = l;
     // Hide lang screen
@@ -998,14 +1010,14 @@
     document.getElementById('iosSubText').textContent = l === 'uz' ? 'iOS uchun App Store' : 'App Store для iOS';
     document.getElementById('androidSubText').textContent = l === 'uz' ? 'Android uchun Google Play' : 'Google Play для Android';
   }
-
+ 
   let currentOS = 'ios';
-
+ 
   const storeLinks = {
     ios: 'https://apps.apple.com/app/wireguard/id1451685025',
     android: 'https://play.google.com/store/apps/details?id=com.wireguard.android'
   };
-
+ 
   function navigate(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -1013,9 +1025,9 @@
     document.getElementById('nav-' + page).classList.add('active');
     if (page === 'setup') showSetupStep(1);
   }
-
+ 
   function goTo(page) { navigate(page); }
-
+ 
   function selectOS(os) {
     currentOS = os;
     const isIOS = os === 'ios';
@@ -1034,27 +1046,28 @@
       : 'Приложение установлено, продолжить ›';
     showSetupStep(2);
   }
-
+ 
   function showSetupStep(step) {
     [1,2,3,4].forEach(i => {
       const el = document.getElementById('setupStep' + i);
       if (el) el.style.display = (i === step) ? 'flex' : 'none';
     });
   }
-
+ 
   function openStore() {
     window.open(storeLinks[currentOS], '_blank');
   }
-
+ 
   function openVPNApp() {
     showToast(lang === 'uz' ? 'WireGuard ilovasi ochilmoqda...' : 'Открытие WireGuard...');
     setTimeout(() => showSetupStep(4), 1500);
   }
-
+ 
   function buyPlan(months, price) {
     showToast(t('buyMsg', months, price));
+    sendToBot({action: 'buy_plan', plan_id: months});
   }
-
+ 
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
@@ -1064,3 +1077,4 @@
 </script>
 </body>
 </html>
+ 
